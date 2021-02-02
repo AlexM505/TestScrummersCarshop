@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_car_shop"
+    app:startDestination="@id/mainCarsFragment">
+
+    <fragment
+        android:id="@+id/mainCarsFragment"
+        android:name="com.alxd.carshop.ui.fragments.main.MainCarsFragment"
+        android:label="Car Shop"
+        tools:layout="@layout/fragment_main_cars" >
+        <action
+            android:id="@+id/action_mainCarsFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_mainCarsFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.alxd.carshop.ui.fragments.add.AddFragment"
+        android:label="Add new car"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_addFragment_to_mainCarsFragment"
+            app:destination="@id/mainCarsFragment"
+            app:popUpTo="@id/mainCarsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.alxd.carshop.ui.fragments.update.UpdateFragment"
+        android:label="Update your car data"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_mainCarsFragment"
+            app:destination="@id/mainCarsFragment"
+            app:popUpTo="@id/mainCarsFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="currentCar"
+            app:argType="com.alxd.carshop.data.models.Car" />
+    </fragment>
+</navigation>
